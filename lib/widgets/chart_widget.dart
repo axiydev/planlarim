@@ -23,194 +23,26 @@ class ChartDart extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    color: Colors.transparent,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Flexible(
-                          flex: 10,
-                          child:Container(
-                            margin: EdgeInsets.only(top: size.width*0.07,left: 5,right: 5),
-                            decoration: BoxDecoration(
-                              color: Color.fromRGBO(245, 220, 120, 1),
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10)),
-                            ),
-                          ),),
-                        Flexible(
-                          flex: 2,
-                          child:Container(
-                            child: Center(
-                              child:Text('Mo',style: GoogleFonts.poppins(fontWeight: FontWeight.w500,color: Colors.grey[700]),),
-                            ),
-                          ),)
-                      ],
-                    ),
-                  )),
+                    child: _pro(context,0.07,Color.fromRGBO(245, 220, 120, 1),'Mo'),
+              ),
               Expanded(
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    color: Colors.transparent,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Flexible(
-                          flex: 10,
-                          child:Container(
-                            margin: EdgeInsets.only(top:size.width*0.2,left: 5,right: 5),
-                            decoration: BoxDecoration(
-                              color: Color.fromRGBO(239, 233, 218,1),
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10)),
-                            ),
-                          ),),
-                        Flexible(
-                          flex: 2,
-                          child:Container(
-                            child: Center(
-                              child:Text('Tu',style: GoogleFonts.poppins(fontWeight: FontWeight.w500,color: Colors.grey[700]),),
-                            ),
-                          ),)
-                      ],
-                    ),
-                  )),
+                  child: _pro(context, 0.2, Color.fromRGBO(239, 233, 218,1), "Tu")
+              ),
               Expanded(
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    color: Colors.transparent,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Flexible(
-                          flex: 10,
-                          child:Container(
-                            margin: EdgeInsets.only(top: size.width*0.33,left: 5,right: 5),
-                            decoration: BoxDecoration(
-                              color: Color.fromRGBO(19, 72, 82, 1),
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10)),
-                            ),
-                          ),),
-                        Flexible(
-                          flex: 2,
-                          child:Container(
-                            child: Center(
-                              child:Text('We',style: GoogleFonts.poppins(fontWeight: FontWeight.w500,color: Colors.grey[700]),),
-                            ),
-                          ),)
-                      ],
-                    ),
-                  )),
+                  child: _pro(context, 0.33,Color.fromRGBO(19, 72, 82, 1), 'We'),
+              ),
               Expanded(
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    color: Colors.transparent,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Flexible(
-                          flex: 10,
-                          child:Container(
-                            margin: EdgeInsets.only(top:size.width*0.099,left: 5,right: 5),
-                            decoration: BoxDecoration(
-                              color: Color.fromRGBO(240,238,217,1),
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10)),
-                            ),
-                          ),),
-                        Flexible(
-                          flex: 2,
-                          child:Container(
-                            child: Center(
-                              child:Text('Th',style: GoogleFonts.poppins(fontWeight: FontWeight.w500,color: Colors.grey[700]),),
-                            ),
-                          ),)
-                      ],
-                    ),
-                  )),
+                  child:_pro(context, 0.099, Color.fromRGBO(240,238,217,1), 'Th'),
+              ),
               Expanded(
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    color: Colors.transparent,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Flexible(
-                          flex: 10,
-                          child:Container(
-                            margin: EdgeInsets.only(top: size.width*0.38,left: 5,right: 5),
-                            decoration: BoxDecoration(
-                              color: Color.fromRGBO(188, 134, 90,1),
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10)),
-                            ),
-                          ),),
-                        Flexible(
-                          flex: 2,
-                          child:Container(
-                            child: Center(
-                              child:Text('Fr',style: GoogleFonts.poppins(fontWeight: FontWeight.w500,color: Colors.grey[700]),),
-                            ),
-                          ),)
-                      ],
-                    ),
-                  )),
+                  child:_pro(context, 0.38, Color.fromRGBO(188, 134, 90,1), 'Fr'),
+              ),
               Expanded(
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    color: Colors.transparent,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Flexible(
-                          flex: 10,
-                          child:Container(
-                            margin: EdgeInsets.only(top: size.width*0.25,left: 5,right: 5),
-                            decoration: BoxDecoration(
-                              color: Color.fromRGBO(247, 221, 112,1),
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10)),
-                            ),
-                          ),),
-                        Flexible(
-                          flex: 2,
-                          child:Container(
-                            child: Center(
-                              child:Text('Sa',style: GoogleFonts.poppins(fontWeight: FontWeight.w500,color: Colors.grey[700]),),
-                            ),
-                          ),)
-                      ],
-                    ),
-                  )),
+                  child: _pro(context, 0.25, Color.fromRGBO(247, 221, 112,1), "Sa"),
+              ),
               Expanded(
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    color: Colors.transparent,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Flexible(
-                          flex: 10,
-                          child:Container(
-                            margin: EdgeInsets.only(top: size.width*0.17,left: 5,right: 5),
-                            decoration: BoxDecoration(
-                              color: Color.fromRGBO(14, 78, 88,1),
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10)),
-                            ),
-                          ),),
-                        Flexible(
-                          flex: 2,
-                          child:Container(
-                            child: Center(
-                              child:Text('Su',style: GoogleFonts.poppins(fontWeight: FontWeight.w500,color: Colors.grey[700]),),
-                            ),
-                          ),)
-                      ],
-                    ),
-                  )),
+                  child: _pro(context, 0.17, Color.fromRGBO(14, 78, 88,1), 'Su'),
+              ),
               Expanded(
                   child: Container(
                     padding: EdgeInsets.all(10),
@@ -225,38 +57,10 @@ class ChartDart extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Flexible(child: Container(
-                                  height: double.infinity,
-                                  width: double.infinity,
-                                  child: Align(
-                                    alignment: Alignment.bottomCenter,
-                                    child:Text('20',style: GoogleFonts.poppins(fontSize:20,fontWeight: FontWeight.w500,color: Colors.grey[700]),),
-                                  ),
-                                )),
-                                Flexible(child: Container(
-                                  height: double.infinity,
-                                  width: double.infinity,
-                                  child: Align(
-                                    alignment: Alignment.bottomCenter,
-                                    child:Text('15',style: GoogleFonts.poppins(fontSize:20,fontWeight: FontWeight.w500,color: Colors.grey[700]),),
-                                  ),
-                                )),
-                                Flexible(child: Container(
-                                  height: double.infinity,
-                                  width: double.infinity,
-                                  child: Align(
-                                    alignment: Alignment.bottomCenter,
-                                    child:Text('10',style: GoogleFonts.poppins(fontSize:20,fontWeight: FontWeight.w500,color: Colors.grey[700]),),
-                                  ),
-                                )),
-                                Flexible(child: Container(
-                                  height: double.infinity,
-                                  width: double.infinity,
-                                  child: Align(
-                                    alignment: Alignment.bottomCenter,
-                                    child:Text('5',style: GoogleFonts.poppins(fontSize:20,fontWeight: FontWeight.w500,color: Colors.grey[700]),),
-                                  ),
-                                )),
+                                Flexible(child:_wdg('20')),
+                                Flexible(child:_wdg('15')),
+                                Flexible(child:_wdg('10')),
+                                Flexible(child:_wdg('5')),
                               ],
                             )
                         ),
@@ -273,6 +77,46 @@ class ChartDart extends StatelessWidget {
             ],
           ),
         ],
+      ),
+    );
+  }
+  Widget _pro(BuildContext context,num s,Color color,String title){
+    final Size size=MediaQuery.of(context).size;
+    return Container(
+      padding: EdgeInsets.all(10),
+      color: Colors.transparent,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Flexible(
+            flex: 10,
+            child:Container(
+              margin: EdgeInsets.only(top: size.width*s,left: 5,right: 5),
+              decoration: BoxDecoration(
+                color: color,
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10)),
+              ),
+            ),),
+          Flexible(
+            flex: 2,
+            child:Container(
+              child: Center(
+                child:Text(title,style: GoogleFonts.poppins(fontWeight: FontWeight.w500,color: Colors.grey[700]),),
+              ),
+            ),)
+        ],
+      ),
+    );
+  }
+
+  Widget _wdg(String title){
+    return  Container(
+      height: double.infinity,
+      width: double.infinity,
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child:Text(title,style: GoogleFonts.poppins(fontSize:20,fontWeight: FontWeight.w500,color: Colors.grey[700]),),
       ),
     );
   }

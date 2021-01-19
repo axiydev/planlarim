@@ -4,6 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:planlarim/models/post_model.dart';
 import 'package:planlarim/pages/home_page.dart';
+
+import 'detail_page.dart';
 class DailyPage extends StatefulWidget {
   static const String id="daily_page";
   @override
@@ -36,6 +38,12 @@ class _DailyPageState extends State<DailyPage> {
           },
         ),
         actions: [
+          IconButton(
+            icon: FaIcon(FontAwesomeIcons.plusCircle),
+            onPressed:(){
+              Navigator.pushNamed(context,DetailPage.id);
+            },
+          ),
           IconButton(
             icon:FaIcon(FontAwesomeIcons.search),
             onPressed: (){},

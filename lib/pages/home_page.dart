@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:planlarim/constatns/constants.dart';
 import 'package:planlarim/pages/daily_page.dart';
 import 'package:planlarim/widgets/chart_widget.dart';
 
@@ -42,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(width: 15,),
         ],
       ),
+      backgroundColor:homebackColor,
       body:SafeArea(
           child: Container(
             child:Column(
@@ -62,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child:RichText(
                           textAlign:TextAlign.start,
                           text:TextSpan(
-                            text: 'Hi,Julia!\n',
+                            text: 'Hi,User!\n',
                             style: GoogleFonts.poppins(fontSize: 30,fontWeight: FontWeight.w600,letterSpacing: 1.2),
                             children: [
                               TextSpan(
@@ -140,13 +142,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         //  mywidgets
                         Transform.translate(
                           child:Container(
-                            child:_ltile(context,'Stress Level','45% decrease',Color.fromRGBO(249,245, 225,1)),
+                            child:_ltile(context,'Stress Level','45% decrease',Color.fromRGBO(249,245, 225,1),Color.fromRGBO(16, 78, 88,1)),
                           ),
                           offset: Offset(0,-35),
                         ),
                         Transform.translate(
                           child:Container(
-                            child:_ltile(context,'Achieve goals','12% increase',Color.fromRGBO(16, 78, 88,1)),
+                            child:_ltile(context,'Achieve goals','12% increase',Color.fromRGBO(16, 78, 88,1),Color.fromRGBO(249,245, 225,1)),
                           ),
                           offset: Offset(0,-35),
                         ),
@@ -160,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
         )
     );
   }
-Container _ltile(BuildContext context,title,subtitle,color){
+Container _ltile(BuildContext context,title,subtitle,color,color1){
    final Size _size=MediaQuery.of(context).size;
    return Container(
      width: double.infinity,
@@ -171,6 +173,9 @@ Container _ltile(BuildContext context,title,subtitle,color){
          decoration: BoxDecoration(
            borderRadius: BorderRadius.circular(15),
            color: color,
+         ),
+         child: Center(
+           child:FaIcon(FontAwesomeIcons.chartBar,size: 27,color:color1,),
          ),
        ),
        title: Text(title,style:GoogleFonts.poppins(fontSize: 22,fontWeight: FontWeight.w600)),

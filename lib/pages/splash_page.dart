@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:planlarim/pages/home_page.dart';
+import 'package:planlarim/pages/signin_page.dart';
 import 'custom_widget.dart';
 import 'daily_page.dart';
 
@@ -17,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     final Size size=MediaQuery.of(context).size;
     return Scaffold(
-     backgroundColor: Color.fromRGBO(253, 243, 233,1),
+     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body:SafeArea(
         child:Container(
           width: size.width,
@@ -116,10 +117,10 @@ class _SplashScreenState extends State<SplashScreen> {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           onPressed: (){
-                            Navigator.pushReplacementNamed(context,HomeScreen.id);
+                            Navigator.pushReplacementNamed(context,SignIn.id);
                           },
                           child:Text('Get Started',style: TextStyle(color: Colors.white,fontSize:22),),
-                          color: Color.fromRGBO(8,31, 34,1),
+                          color:Theme.of(context).textTheme.button.color,
                         ),
                       ),
                     ],
