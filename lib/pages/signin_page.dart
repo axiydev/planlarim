@@ -1,8 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:planlarim/pages/home_page.dart';
 import 'package:planlarim/pages/signup_page.dart';
 import 'package:planlarim/constatns/constants.dart';
+import 'package:planlarim/services/auth_service.dart';
+import 'package:planlarim/services/prefs_service.dart';
+import 'package:planlarim/services/utils_service.dart';
 
 import 'custom_widget.dart';
 class SignIn extends StatefulWidget {
@@ -12,6 +17,26 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  var emailController=new TextEditingController();
+  var passwordController=new TextEditingController();
+  _doSignIn()async{
+    String email=emailController.text.trim();
+    String pass=passwordController.text.trim();
+    if(email.isEmpty||pass.isEmpty) return;
+    AuthService.signInUser(context, email, pass).then((firebaseUser){
+      _getFirebaseUser(firebaseUser);
+    });
+  }
+  _getFirebaseUser(FirebaseUser firebaseUser)async{
+    if(firebaseUser!=null){
+      await Prefs.saveUserId(firebaseUser.uid);
+      Navigator.pushReplacementNamed(context,HomeScreen.id);
+      Utils.showToast('Successfully sign in');
+    }else{
+      Utils.showToast('check your informations');
+    }
+
+  }
   @override
   Widget build(BuildContext context) {
     final Size size=MediaQuery.of(context).size;
@@ -42,14 +67,14 @@ class _SignInState extends State<SignIn> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Flexible(child:_fields(context, 'Email', false)),
-                  Flexible(child: _fields(context, 'Password', true),),
+                  Flexible(child:_fields(context, 'Email', false,emailController)),
+                  Flexible(child: _fields(context, 'Password', true,passwordController),),
                   Flexible(child: Container(
                     margin: EdgeInsets.only(bottom: 20),
                     width: double.infinity,
                     height: size.width*0.15,
                     child:FlatButton(
-                      onPressed: (){},
+                      onPressed: _doSignIn,
                       child:Text('Sign In',style: GoogleFonts.poppins(fontWeight: FontWeight.w600,fontSize: 20,color: Colors.white),),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
@@ -78,7 +103,7 @@ class _SignInState extends State<SignIn> {
       ),
     );
   }
-  Widget _fields(BuildContext context,title,obs){
+  Widget _fields(BuildContext context,title,obs,controller){
     final Size size=MediaQuery.of(context).size;
     return Container(
         margin: EdgeInsets.only(bottom: 20),
@@ -91,6 +116,7 @@ class _SignInState extends State<SignIn> {
         ),
         child:Center(
           child: TextField(
+            controller: controller,
             obscureText: obs,
             style:GoogleFonts.poppins(fontSize: 20,color: Colors.grey[700],fontWeight: FontWeight.w500),
             decoration: InputDecoration(

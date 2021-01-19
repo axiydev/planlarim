@@ -1,7 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:planlarim/pages/home_page.dart';
 import 'package:planlarim/pages/signin_page.dart';
+import 'package:planlarim/services/auth_service.dart';
+import 'package:planlarim/services/prefs_service.dart';
+import 'package:planlarim/services/utils_service.dart';
 
 import 'custom_widget.dart';
 class SignUp extends StatefulWidget {
@@ -11,6 +16,34 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  var fullnameControll=new TextEditingController();
+  var emailController=new TextEditingController();
+  var passController=new TextEditingController();
+  var confirmPassController=new TextEditingController();
+  _doSignUp()async{
+  String name=fullnameControll.text.trim();
+  String email=emailController.text.trim();
+  String pass=passController.text.trim();
+  String confirm=confirmPassController.text.trim();
+  if(name.isEmpty||email.isEmpty||pass.isEmpty||confirm.isEmpty)return;
+  if(pass!=confirm){
+    await Utils.showToast('check your pass');
+    return null;
+  };
+  AuthService.signUpUser(context, name, email, pass).then((firebaseUser){
+    _getFirebaseUser(firebaseUser);
+  });
+  }
+  
+  _getFirebaseUser(FirebaseUser firebaseUser)async{
+    if(firebaseUser!=null){
+      await Prefs.saveUserId(firebaseUser.uid);
+      Navigator.pushReplacementNamed(context, HomeScreen.id);
+      Utils.showToast('successfully saved user');
+    }else{
+      Utils.showToast('check your informations');
+    }
+  }
   @override
   Widget build(BuildContext context) {
     final Size size=MediaQuery.of(context).size;
@@ -35,30 +68,30 @@ class _SignUpState extends State<SignUp> {
               bottom: size.width*0.2,
               child:Col(color: Colors.grey[700],height: 20,width: size.width*0.12,width1: size.width*0.15,width2: size.width*0.2,width3: size.width*0.09,sizedB: size.width*0.02,),
             ),
-            Padding(
+             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child:Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Flexible(child:_fields(context, 'Name',false),),
-                  Flexible(child:_fields(context, 'Email',false),),
-                  Flexible(child: _fields(context, 'Password',true),),
-                  Flexible(child: _fields(context, 'Confirm Password',true),),
+                  Flexible(child:_fields(context, 'Name',false,fullnameControll),),
+                  Flexible(child:_fields(context, 'Email',false,emailController),),
+                  Flexible(child: _fields(context, 'Password',true,passController),),
+                  Flexible(child: _fields(context, 'Confirm Password',true,confirmPassController),),
                   Flexible(
                     child: Container(
-                    margin: EdgeInsets.only(bottom: 20),
-                    width: double.infinity,
-                    height: size.width*0.15,
-                    child:FlatButton(
-                      onPressed: (){},
-                      child:Text('Sign Up',style: GoogleFonts.poppins(fontWeight: FontWeight.w600,fontSize: 20,color: Colors.white),),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
+                      margin: EdgeInsets.only(bottom: 20),
+                      width: double.infinity,
+                      height: size.width*0.15,
+                      child:FlatButton(
+                        onPressed: (){},
+                        child:Text('Sign Up',style: GoogleFonts.poppins(fontWeight: FontWeight.w600,fontSize: 20,color: Colors.white),),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        color:Theme.of(context).textTheme.button.color,
                       ),
-                      color:Theme.of(context).textTheme.button.color,
-                    ),
-                  ),),
+                    ),),
                   Flexible(
                       child: Container(
                         margin: EdgeInsets.only(bottom: 20),
@@ -80,7 +113,7 @@ class _SignUpState extends State<SignUp> {
       ),
     );
   }
-  Widget _fields(BuildContext context,title,obs){
+  Widget _fields(BuildContext context,title,obs,controller){
     final Size size=MediaQuery.of(context).size;
     return Container(
         margin: EdgeInsets.only(bottom: 20),
@@ -93,6 +126,7 @@ class _SignUpState extends State<SignUp> {
         ),
         child:Center(
           child: TextField(
+            controller: controller,
             obscureText: obs,
             style:GoogleFonts.poppins(fontSize: 20,color: Colors.grey[700],fontWeight: FontWeight.w500),
             decoration: InputDecoration(

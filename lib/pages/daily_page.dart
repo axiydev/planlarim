@@ -15,14 +15,14 @@ class DailyPage extends StatefulWidget {
 class _DailyPageState extends State<DailyPage> {
   final Color _color=Color.fromRGBO(253, 243, 233,1);
   List<Post> lt=new List.from({
-    Post('Morning Intention','Turn your mind,body and soul and let them work together','assets/images/ic_image.jpg'),
-    Post('Morning Intention','Reduce a fear ankiety, stress, and negative thoughts','assets/images/ic_image2.png'),
-    Post('Morning Intention','Decrases in brain cell volume in the amygdata','assets/images/ic_image1.jpg'),
-    Post('Morning Intention','Decrases in brain cell volume in the amydata','assets/images/ic_image.jpg'),
-    Post('Morning Intention','aksdkjahdfjdjhsjkshdjhfjsldhjflkdhgtruvhfiugfkdslfjlksdhfkdfkjdhskd','assets/images/ic_image2.png'),
-    Post('Morning Intention','aksdkjahdfjdjhsjkshdjhfjsldhjflkdhgtruvhfiugfkdslfjlksdhfkdfkjdhskd','assets/images/ic_image1.jpg'),
-    Post('Morning Intention','aksdkjahdfjdjhsjkshdjhfjsldhjflkdhgtruvhfiugfkdslfjlksdhfkdfkjdhskd','assets/images/ic_image2.png'),
-    Post('Morning Intention','aksdkjahdfjdjhsjkshdjhfjsldhjflkdhgtruvhfiugfkdslfjlksdhfkdfkjdhskd','assets/images/ic_image.jpg'),
+    Post('Morning Intention','Turn your mind,body and soul and let them work together','assets/images/ic_image.jpg','37465734'),
+    Post('Morning Intention','Reduce a fear ankiety, stress, and negative thoughts','assets/images/ic_image2.png','37465734'),
+    Post('Morning Intention','Decrases in brain cell volume in the amygdata','assets/images/ic_image1.jpg','37465734'),
+    Post('Morning Intention','Decrases in brain cell volume in the amydata','assets/images/ic_image.jpg','37465734'),
+    Post('Morning Intention','aksdkjahdfjdjhsjkshdjhfjsldhjflkdhgtruvhfiugfkdslfjlksdhfkdfkjdhskd','assets/images/ic_image2.png','37465734'),
+    Post('Morning Intention','aksdkjahdfjdjhsjkshdjhfjsldhjflkdhgtruvhfiugfkdslfjlksdhfkdfkjdhskd','assets/images/ic_image1.jpg','37465734'),
+    Post('Morning Intention','aksdkjahdfjdjhsjkshdjhfjsldhjflkdhgtruvhfiugfkdslfjlksdhfkdfkjdhskd','assets/images/ic_image2.png','37465734'),
+    Post('Morning Intention','aksdkjahdfjdjhsjkshdjhfjsldhjflkdhgtruvhfiugfkdslfjlksdhfkdfkjdhskd','assets/images/ic_image.jpg','37465734'),
   });
   @override
   Widget build(BuildContext context) {

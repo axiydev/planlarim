@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: basicTheme(context),
-      home:HomeScreen(),
+      home:SignIn(),
       routes:{
         SplashScreen.id:(context)=>SplashScreen(),
         DailyPage.id:(context)=>DailyPage(),
